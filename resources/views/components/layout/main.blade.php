@@ -14,40 +14,27 @@
     {{-- Compiled assets --}}
     @vite(['resources/css/style.css', 'resources/css/' . $cssFile, 'resources/js/app.js'])
 </head>
-
 <body>
 
 <header>
-    <nav>
-        <ul>
-            <!-- Aside menu -->
-            <div id="asideMenu" class="asideMenu">
-                <!-- "void(0)" prevents the link from navigating to another page -->
-                <a href="javascript:void(0)" class="closeButton" onclick="closeMenu()">&times;</a>
-                <aside>
-                    <a href="https://oer.hz.nl/6978cdea-fb31-430b-9bf9-63206aa07754#111-course-and-examination-regulations"
-                       target="_blank"> HZ HBO-ICT Course and Examination Regulations (CER)</a>
-                    <hr class="separator">
-                    <a href="https://oer.hz.nl/6978cdea-fb31-430b-9bf9-63206aa07754#chapter-2-implementation-regulation-hz-cer"
-                       target="_blank"> The Implementation Regulations (IR)</a>
-                    <hr class="separator">
-                    <a href="https://learn.hz.nl/my/" target="_blank">Learn environment</a>
-                    <hr class="separator">
-                    <a href="https://hz.osiris-student.nl/voortgang" target="_blank">My HZ Progress</a>
-                    <hr class="separator">
-                    <a href="https://github.com/HZ-HBO-ICT" target="_blank">HBO-ICT GitHub</a>
-                </aside>
-            </div>
-            <span style="font-size:30px;cursor:pointer" onclick="openMenu()">&#9776; </span>
+    <x-ui.navbar>
+        <x-ui.aside>
+            @foreach($asideItems as $index => $asideItem)
+                <x-ui.aside-item :link="$asideItem['link']">
+                    {{ $asideItem['title'] }}
+                </x-ui.aside-item>
 
-            <!-- Navigation menu -->
-            <li><a class="active" href="{{ route('home') }}">Home</a></li>
-            <li><a>Profile</a></li>
-            <li><a>Dashboard</a></li>
-            <li><a>FAQ</a></li>
-            <li><a>Blog</a></li>
-        </ul>
-    </nav>
+                {{-- Add separator after each aside item except the last one --}}
+                @if($index < count($asideItems) - 1)
+                    <x-ui.aside-separator></x-ui.aside-separator>
+                @endif
+            @endforeach
+        </x-ui.aside>
+
+        @foreach($navItems as $navItem)
+            <x-ui.navbar-item :route="$navItem['route']">{{ $navItem['title'] }}</x-ui.navbar-item>
+        @endforeach
+    </x-ui.navbar>
 </header>
 
 <main>
