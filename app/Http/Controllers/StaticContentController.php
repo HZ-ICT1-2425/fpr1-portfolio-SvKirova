@@ -35,14 +35,4 @@ class StaticContentController extends Controller
     {
         return view('dashboard');
     }
-
-    /**
-     * Display the FAQ page.
-     *
-     * @return View The faq.blade.php view
-     */
-    public function faq(): View
-    {
-        return view('faq');
-    }
 }

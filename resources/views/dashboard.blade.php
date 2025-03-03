@@ -1,8 +1,10 @@
-<x-layout.main>
-    <x:slot:description> Here is the dashboard table containing information about all of the course subjects that are present in our programme during the first year in HBO-ICT at HZ University of Applied Sciences. </x:slot:description>
-    <x:slot:keywords> Course content, ICT, Dashboard </x:slot:keywords>
-    <x:slot:cssFile>dashboard-style.css</x:slot:cssFile>
-    <x:slot:title>Portfolio | Dashboard</x:slot:title>
+<x-layout.main
+    description="Here is the dashboard table containing information about all of the course subjects that are present in our programme during the first year in HBO-ICT at HZ University of Applied Sciences."
+    keywords="Course content, ICT, Dashboard"
+    title="Portfolio | Dashboard">
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('css-files/dashboard-style.css') }}">
+    @endpush
 
     <h1 id="course-structure">Course structure of the programme</h1>
     <!-- Table showing the course structure of the ICT programme -->

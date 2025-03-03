@@ -15,7 +15,7 @@ class Main extends Component
         ['route' => 'home', 'title' => 'Home'],
         ['route' => 'profile', 'title' => 'Profile'],
         ['route' => 'dashboard', 'title' => 'Dashboard'],
-        ['route' => 'faq', 'title' => 'FAQ'],
+        ['route' => 'faqs.index', 'title' => 'FAQ'],
         ['route' => 'posts.index', 'title' => 'Blog']
     ];
 
@@ -33,10 +33,15 @@ class Main extends Component
 
     /**
      * Create a new component instance.
+     * @param string $description
+     * @param string $keywords
+     * @param string $title
      */
-    public function __construct()
-    {
-        //
+    public function __construct(
+        public string $description = 'This is my portfolio website',
+        public string $keywords = 'ICT, HZ, Portfolio',
+        public string $title = 'Portfolio'
+    ) {
     }
 
     /**

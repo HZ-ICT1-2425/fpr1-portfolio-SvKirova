@@ -58,7 +58,7 @@ The simplest way that ensures all the files are as close to a fresh installation
   @fortawesome/fontawesome-free`
 - Remove all content from `resources/css/app.css`.
 - Copy the folder `resources/sass`.
-- Update `vite.config.js` to replace the app.js with the sass folder content.
+- Update `vite.config.js` to replace the asideMenu.js with the sass folder content.
 
 #### Copy the main view
 - Copy the content of `resourses/views/welcome.blade.php`.

@@ -1,8 +1,11 @@
-<x-layout.main>
-    <x:slot:description> Hello! My name is Svetlozara Kirova. I am a first-year ICT student at HZ University of Applied Sciences. Here you can find my motivation and my CV that contains information about myself.</x:slot:description>
-    <x:slot:keywords> Motives, ICT, HZ</x:slot:keywords>
-    <x:slot:title> Portfolio | Home </x:slot:title>
-    <x:slot:cssFile> index-style.css </x:slot:cssFile>
+<x-layout.main
+    description="Hello! My name is Svetlozara Kirova. I am a first-year ICT student at HZ University of Applied Sciences. Here you can find my motivation and my CV that contains information about myself."
+    keywords="Motives, ICT, HZ"
+    title="Portfolio | Home">
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('css-files/index-style.css') }}">
+    @endpush
+
     <!-- Top part of the page -->
     <div id="up-section">
         <div class="greeting">

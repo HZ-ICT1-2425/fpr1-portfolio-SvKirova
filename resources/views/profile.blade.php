@@ -1,9 +1,10 @@
-<x-layout.main>
-
-    <x:slot:description> I am Svetlozara Kirova, I am 19 years old, from Ruse, Bulgaria. Here you can find more information about my hobbies, what I really like to do in my free time and a little glimpse into my family. </x:slot:description>
-    <x:slot:keywords> Characteristics of me, Profile </x:slot:keywords>
-    <x:slot:cssFile> profile-style.css </x:slot:cssFile>
-    <x:slot:title> Portfolio | My profile </x:slot:title>
+<x-layout.main
+    description="I am Svetlozara Kirova, I am 19 years old, from Ruse, Bulgaria. Here you can find more information about my hobbies, what I really like to do in my free time and a little glimpse into my family."
+    keywords="Characteristics of me, Profile"
+    title="Portfolio | My profile">
+    @push('styles')
+        <link rel="stylesheet" href="{{ asset('css-files/profile-style.css') }}">
+    @endpush
 
     <!-- Container in the top part of the page - contains an image of me and some personal information -->
     <div class="container">
