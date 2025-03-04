@@ -14,7 +14,7 @@
             <h3 id="form-sub"> Please write the necessary changes and click 'Save' </h3>
 
             @if ($errors->any())
-                <div>
+                <div class="error-feedback">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -24,11 +24,13 @@
             @endif
             {{-- First input --}}
             <label>Question</label>
-            <input type="text" name="question" placeholder="Enter a question..." value="{{ old('question', $faq->question) }}">
+            <input type="text" name="question" placeholder="Enter a question..." value="{{ old('question', $faq->question) }}"
+                   class="@error('question') is-invalid @enderror">
 
             {{-- Second input --}}
             <label>Link</label>
-            <input type="text" name="link" placeholder="Enter a link for your answer..." value="{{ old('link', $faq->link) }}">
+            <input type="text" name="link" placeholder="Enter a link for your answer..." value="{{ old('link', $faq->link) }}"
+                   class="@error('link') is-invalid @enderror">
 
             {{-- Third input --}}
             <label>Answer</label>

@@ -1,6 +1,6 @@
 @props(['value' => '', 'name', 'height' => 400])
 
-<div>
+<div class="@error($name) is-invalid @enderror">
     <textarea id="ckeditor-{{ $name }}" name="{{ $name }}" {{ $attributes->merge(['class' => 'textarea']) }} >{!! $value !!}</textarea>
 </div>
 

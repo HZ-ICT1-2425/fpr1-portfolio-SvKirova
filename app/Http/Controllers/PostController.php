@@ -51,7 +51,11 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|min:10|max:255',
             'slug' => 'required|unique:posts,slug,' . $slug . ',slug',
-            'body' => 'required|string|min:10',
+            'body' => ['required', 'string', function ($attribute, $value, $fail) {
+                if (strlen(strip_tags($value)) < 10) {
+                    $fail('The '.$attribute.' must be at least 10 characters without HTML tags.');
+                }
+            }]
         ]);
 
         $post = Post::where('slug', $slug)->firstOrFail();
@@ -93,7 +97,11 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|min:10|max:255',
             'slug' => 'required|string|unique:posts,slug|max:255|regex:/^[^ \/\\\\]*$/|min:10',
-            'body' => 'required|string|min:10'
+            'body' => ['required', 'string', function ($attribute, $value, $fail) {
+                if (strlen(strip_tags($value)) < 10) {
+                    $fail('The '.$attribute.' must be at least 10 characters.');
+                }
+            }]
         ]);
 
         Post::create($validated);

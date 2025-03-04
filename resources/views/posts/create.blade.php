@@ -13,7 +13,7 @@
             <h3 id="form-sub"> Please fill out all the form fields and click 'Save' </h3>
 
             @if ($errors->any())
-                <div>
+                <div class="error-feedback">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -23,11 +23,13 @@
             @endif
         {{-- First input --}}
         <label>Title</label>
-            <input type="text" name="title" placeholder="Enter the post's title..." value="{{ old('title') }}">
+            <input type="text" name="title" placeholder="Enter the post's title..." value="{{ old('title') }}"
+                   class="@error('title') is-invalid @enderror">
 
-        {{-- Second input --}}
+            {{-- Second input --}}
         <label>Slug</label>
-            <input type="text" name="slug" placeholder="e.g. my-first-post" value="{{ old('slug') }}">
+            <input type="text" name="slug" placeholder="e.g. my-first-post" value="{{ old('slug') }}"
+                   class="@error('slug') is-invalid @enderror">
 
         {{-- Third input --}}
         <label>Body</label>

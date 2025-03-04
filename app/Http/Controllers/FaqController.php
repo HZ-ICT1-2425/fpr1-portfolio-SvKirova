@@ -40,7 +40,11 @@ class FaqController extends Controller
         $validated = $request->validate([
             'question' => 'required|string|min:10|max:255',
             'link' => 'nullable|url',
-            'answer' => 'required|string|min:10'
+            'answer' => ['required', 'string', function ($attribute, $value, $fail) {
+                if (strlen(strip_tags($value)) < 10) {
+                    $fail('The '.$attribute.' must be at least 10 characters.');
+                }
+            }]
         ]);
 
         Faq::create($validated);
@@ -59,7 +63,11 @@ class FaqController extends Controller
         $validated = $request->validate([
             'question' => 'required|string|min:10|max:255',
             'link' => 'nullable|url',
-            'answer' => 'required|string|min:10'
+            'answer' => ['required', 'string', function ($attribute, $value, $fail) {
+                if (strlen(strip_tags($value)) < 10) {
+                    $fail('The '.$attribute.' must be at least 10 characters.');
+                }
+            }]
         ]);
 
         $faq = Faq::find($id);

@@ -39,6 +39,7 @@
 </header>
 
 <main>
+    <x-ui.notifications></x-ui.notifications>
     {{ $slot }}
 </main>
 

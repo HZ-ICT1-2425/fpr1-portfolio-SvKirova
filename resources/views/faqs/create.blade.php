@@ -13,7 +13,7 @@
             <h3 id="form-sub"> Please fill out all the form fields and click 'Save' </h3>
 
             @if ($errors->any())
-                <div>
+                <div class="error-feedback">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -23,11 +23,13 @@
             @endif
         {{-- First input --}}
         <label>Question</label>
-            <input type="text" name="question" placeholder="Enter a question..." value="{{ old('question') }}">
+            <input type="text" name="question" placeholder="Enter a question..." value="{{ old('question') }}"
+                   class="@error('question') is-invalid @enderror">
 
         {{-- Second input --}}
         <label>Link</label>
-            <input type="text" name="link" placeholder="Enter a link for your answer..." value="{{ old('link') }}">
+            <input type="text" name="link" placeholder="Enter a link for your answer..." value="{{ old('link') }}"
+                   class="@error('link') is-invalid @enderror">
 
         {{-- Third input --}}
         <label>Answer</label>
