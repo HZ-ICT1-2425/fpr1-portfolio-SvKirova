@@ -25,14 +25,4 @@ class StaticContentController extends Controller
     {
         return view('profile');
     }
-
-    /**
-     * Display the dashboard page.
-     *
-     * @return View The dashboard.blade.php view
-     */
-    public function dashboard(): View
-    {
-        return view('dashboard');
-    }
 }

@@ -43,7 +43,7 @@ th p {
     text-align: center;
 }
 
-.status {
+.cell {
     text-align: center;
     font-style: italic;
 }
@@ -63,7 +63,7 @@ input[type=text] {
 button {
     padding: 6px;
     margin: 8px;
-    width: 30%;
+    width: 65%;
     color: rgb(255, 255, 255);
     font-weight: bold;
     background-color: rgb(0, 125, 83);
@@ -141,4 +141,33 @@ button:hover {
     font-style: italic;
     margin: 0;
     text-align: center;
+}
+
+#empty-db {
+    text-align: center;
+    height: 100vh;
+}
+
+.date-picker {
+    background-color: rgba(233, 255, 237, 0.72);
+    border: 2px solid rgba(0, 125, 83, 0.718);
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 16px;
+    color: rgba(0, 125, 83, 0.718);
+    transition: all 0.3s ease;
+}
+
+.date-picker:focus {
+    outline: none;
+    border-color: rgba(0, 125, 83, 0.718);
+    background-color: #c8e6c9;
+}
+
+.date-picker:hover {
+    background-color: #c5e6c8;
+}
+
+.date-picker::placeholder {
+    color: #81c784;
 }
